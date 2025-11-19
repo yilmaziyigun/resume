@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yılmaz İyigün | Software Developer</title>
+    <meta name="description" content="Yılmaz İyigün - Software Developer">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- GENEL AYARLAR --- */
+        :root {
+            --primary-color: #2c3e50; /* Koyu Lacivert */
+            --secondary-color: #3498db; /* Mavi */
+            --bg-light: #f4f4f4;
+            --text-dark: #333;
+            --text-light: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- HERO BÖLÜMÜ --- */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero p span.typed-text {
+            border-right: 2px solid white;
+            padding-right: 5px;
+            animation: blink-caret .75s step-end infinite;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--text-light);
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            font-size: 1.1rem;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        /* --- ORTAK BÖLÜM AYARLARI --- */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- HAKKIMDA --- */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .about-text {
+            flex: 1;
+            font-size: 1.1rem;
+        }
+
+        /* Hakkımda bölümündeki yetkinlikler */
+        .about-text .competencies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Kartlar biraz daha geniş */
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .about-text .competency-card {
+            background: var(--bg-light);
+            padding: 1.2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s, background-color 0.3s, color 0.3s;
+            cursor: default;
+        }
+        
+        .about-text .competency-card:hover {
+            transform: translateY(-5px);
+            background: var(--secondary-color);
+            color: #fff;
+        }
+
+        .about-text .competency-card i {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .about-text .competency-card:hover i {
+            color: #fff;
+        }
+
+        .about-text .competency-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+
+        /* --- DENEYİM & EĞİTİM --- */
+        .bg-light {
+            background-color: var(--bg-light);
+        }
+
+        .timeline-item {
+            background: #fff;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--secondary-color);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .timeline-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .date {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+            font-weight: bold;
+        }
+        
+        .timeline-item ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        .timeline-item ul li {
+            margin-bottom: 5px;
+        }
+
+
+        /* --- YETENEKLER (TEKNİK STACK) --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Kartlar daha geniş detay için */
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .skill-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            background: var(--secondary-color);
+            color: #fff;
+        }
+
+        .skill-card i {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .skill-card:hover i {
+            color: #fff;
+        }
+        
+        .skill-card h3 {
+            margin-bottom: 10px;
+        }
+        
+        .skill-card p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* --- İLETİŞİM FORMU --- */
+        .contact-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .contact-form {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: var(--secondary-color);
+            color: var(--text-light);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #2980b9;
+        }
+
+        .social-icons {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .social-icons a {
+            font-size: 2rem;
+            margin: 0 15px;
+            color: var(--primary-color);
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        /* MOBİL UYUMLULUK */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1.2rem; }
+            .container { flex-direction: column; }
+            nav ul { margin-top: 1rem; }
+            nav ul li { margin: 0 10px; }
+            .about-content { flex-direction: column; }
+            .section-title { font-size: 2rem; }
+            .timeline-item { padding: 1.5rem; }
+            .contact-form { padding: 1.5rem; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">Yılmaz İyigün</div>
+            <nav>
+                <ul>
+                    <li><a href="#hakkimda">Hakkımda</a></li>
+                    <li><a href="#deneyim">Deneyim</a></li>
+                    <li><a href="#egitim">Eğitim</a></li>
+                    <li><a href="#iletisim">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Merhaba, Ben Yılmaz İyigün</h1>
+        <p><span class="typed-text"></span></p> 
+        <a href="#iletisim" class="btn">Bana Ulaşın</a>
+    </section>
+
+    <section id="hakkimda">
+        <h2 class="section-title">Hakkımda</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Yönetim Bilişim Sistemleri mezunu ve ileri seviye yazılım geliştirme teknolojilerine hakim bir Full Stack Geliştiriciyim. 
+                    Modern yazılım mimarileri ve kurumsal kaynak planlama sistemleri üzerine uzmanlaşıyorum. 
+                    Sürekli öğrenme ve uygulama geliştirme tutkumla projelerde değer yaratmayı hedefliyorum.
+                </p>
+                <br>
+                <p><strong>Temel Yetkinlikler:</strong></p>
+                
+                <div class="competencies-grid">
+                    <div class="competency-card">
+                        <i class="fas fa-code"></i>
+                        <h4>C# .NET</h4>
+                    </div>
+                    <div class="competency-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h4>ASP.NET Core</h4>
+                    </div>
+                    <div class="competency-card">
+                        <i class="fas fa-database"></i>
+                        <h4>SQL & PostgreSQL</h4>
+                    </div>
+                    <div class="competency-card">
+                        <i class="fas fa-cogs"></i>
+                        <h4>ERP (SAP, IFS, CANIAS)</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="deneyim" class="bg-light">
+        <h2 class="section-title">İş Deneyimleri</h2>
+        
+        <div class="timeline-item">
+            <h3>Yepsan Savunma ve Havacılık</h3>
+            <span class="date">2023 - Günümüz</span>
+            <p><strong>Dokümantasyon Uzmanı & Bilgi Teknolojileri Desteği</strong></p>
+            <ul>
+                <li>Satış bölümünde bilgi teknolojileri desteği sağlama.</li>
+                <li>Mühendislik teknik resmine uygun FAI formlarının hazırlanması.</li>
+                <li>BOEING, AIRBUS, SIKORSKY ve TAI projeleri için dokümantasyon süreçleri.</li>
+                <li>Aktif ERP ve MS Office kullanımı.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <h3>EKS Yazılım Danışmanlık</h3>
+            <span class="date">2022</span>
+            <p><strong>Yazılım Geliştirici</strong></p>
+            <ul>
+                <li>CANIAS ERP üzerinde TROIA dili ile yazılım geliştirme.</li>
+                <li>Modüler geliştirme, ekleme, silme ve güncelleme işlemleri.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Freelance</h3>
+            <span class="date">2019 - 2020</span>
+            <p><strong>Yazılım Geliştirici</strong></p>
+            <ul>
+                <li>Visual Studio'da C# ve SQL tabanlı masaüstü projeler.</li>
+                <li>Veri tabanı mimarisi ve CRUD operasyonları.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="egitim">
+        <h2 class="section-title">Eğitim</h2>
+        <div class="timeline-item" style="border-left-color: var(--primary-color);">
+            <h3>Cumhuriyet Üniversitesi</h3>
+            <span class="date">2016 - 2020</span>
+            <p>Yönetim Bilişim Sistemleri - Lisans</p>
+        </div>
+        <div class="timeline-item" style="border-left-color: var(--primary-color);">
+            <h3>Cumhuriyet Üniversitesi</h3>
+            <span class="date">2019 - 2020</span>
+            <p>Bilgisayar ve Öğretim Teknolojileri Öğretmenliği (Formasyon)</p>
+        </div>
+    </section>
+
+    <section id="yetenekler" class="bg-light">
+        <h2 class="section-title">Teknik Yetenekler & Uzmanlıklar</h2>
+        <div class="skills-grid">
+            
+            <div class="skill-card">
+                <i class="fas fa-layer-group"></i>
+                <h3>Architecture & Patterns</h3>
+                <p>ASP.NET Core, Onion Architecture, CQRS, Mediator, Chain of Responsibility</p>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-network-wired"></i>
+                <h3>Microservices</h3>
+                <p>Docker, RabbitMQ, Redis, Elastic Search, Ocelot Gateway, IdentityServer (Duende)</p>
+            </div>
+
+            <div class="skill-card">
+                <i class="fab fa-angular"></i>
+                <h3>Frontend Frameworks</h3>
+                <p>Angular, React JS, HTML5, CSS3, JavaScript</p>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <h3>Database</h3>
+                <p>PostgreSQL, MSSQL, Entity Framework Core</p>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Security & Realtime</h3>
+                <p>JWT (JSON Web Token) Security, SignalR (Gerçek zamanlı uygulamalar)</p>
+            </div>
+
+             <div class="skill-card">
+                <i class="fas fa-brain"></i>
+                <h3>Other Techs</h3>
+                <p>.NET AI Entegrasyonu, Postman, Git</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="iletisim">
+        <h2 class="section-title">İletişim</h2>
+        <div class="contact-form-container">
+            <p style="text-align: center; margin-bottom: 1.5rem; font-size: 1.1rem;">Projeleriniz ve iş birlikleri için benimle iletişime geçin.</p>
+            <form action="https://formspree.io/f/xnnwdrkw" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Adınız Soyadınız:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-posta Adresiniz:</label>
+                    <input type="email" id="email" name="_replyto" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mesajınız:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Mesajı Gönder</button>
+            </form>
+        </div>
+        
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/yılmazıyıgun" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/yilmaziyigun" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:yilmaziyigun06@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+905331582606"><i class="fas fa-phone"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Yılmaz İyigün. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script>
+        // --- YAZMA EFEKTİ ---
+        const typedTextSpan = document.querySelector(".typed-text");
+        const textArray = [ "Software Developer","Full Stack Developer", ".NET Core Developer"];
+        const typingDelay = 70;
+        const erasingDelay = 40;
+        const newTextDelay = 800;
+        let textArrayIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < textArray[textArrayIndex].length) {
+                if(!typedTextSpan.classList.contains("typing")) typedTextSpan.classList.add("typing");
+                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } else {
+                typedTextSpan.classList.remove("typing");
+                setTimeout(erase, newTextDelay);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                if(!typedTextSpan.classList.contains("typing")) typedTextSpan.classList.add("typing");
+                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } else {
+                typedTextSpan.classList.remove("typing");
+                textArrayIndex++;
+                if(textArrayIndex>=textArray.length) textArrayIndex=0;
+                setTimeout(type, typingDelay + 1100);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            if(textArray.length) setTimeout(type, newTextDelay + 250);
+        });
+
+        // --- SCROLL ANİMASYONLARI (Hakkımda ve Yetenekler Kartları İçin) ---
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const animateOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Hakkımda kartları seçimi
+        const competencyCards = document.querySelectorAll('.competency-card');
+        competencyCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            animateOnScroll.observe(card);
+        });
+
+        // Yetenek kartları seçimi
+        const skillCards = document.querySelectorAll('.skill-card');
+        skillCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            animateOnScroll.observe(card);
+        });
+
+    </script>
+
+</body>
+</html>
