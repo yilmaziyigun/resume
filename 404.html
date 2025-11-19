@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | Sayfa Bulunamadı - Yılmaz İyigün</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- GENEL AYARLAR --- */
+        :root {
+            --primary-color: #2c3e50; /* Koyu Lacivert */
+            --secondary-color: #3498db; /* Mavi */
+            --bg-light: #f4f4f4;
+            --text-dark: #333;
+            --text-light: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light); /* Hafif gri arka plan */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Sayfayı dikeyde ortalamak için */
+            text-align: center;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: 0.3s;
+        }
+
+        /* --- 404 KAPSAYICI --- */
+        .error-container {
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .error-container h1 {
+            font-size: 8rem; /* Büyük 404 yazısı */
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .error-container h2 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .error-container p {
+            font-size: 1.1rem;
+            color: #777;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--text-light);
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        /* --- MOBİL UYUMLULUK --- */
+        @media (max-width: 600px) {
+            .error-container {
+                padding: 20px;
+                margin: 0 15px;
+            }
+            .error-container h1 {
+                font-size: 6rem;
+            }
+            .error-container h2 {
+                font-size: 1.5rem;
+            }
+            .error-container p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <h1>404</h1>
+        <h2>Üzgünüz, Aradığınız Sayfa Bulunamadı</h2>
+        
+        <p>
+            Girdiğiniz adres hatalı veya sayfa silinmiş olabilir. Lütfen aşağıdaki butona tıklayarak ana sayfaya geri dönün.
+        </p>
+        
+        <a href="index.html" class="btn">
+            <i class="fas fa-home"></i> Ana Sayfaya Dön
+        </a>
+    </div>
+
+</body>
+</html>
